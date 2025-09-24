@@ -125,103 +125,114 @@ export class RegisterComponent  implements OnInit {
       this.showToastMessage('error', 'Registration Failed', 'Please fill all required fields.');
       return;
     }
-  
+
     const payload = {
       name: form.value.companyName,
       phone: form.value.phone,
       email: form.value.email,
     };
-  
+
+    const loading = await this.createLoading();
+    await loading.present();
+
     this.authService.createCo(payload).subscribe({
       next: async (response) => {
-        if (response && response.id) {          
-          this.company_id= response.id 
-          this.subscribe()          
+        await loading.dismiss();
+
+        if (response && response.id) {
+          this.company_id = response.id;
+          this.subscribe(); // call your subscription method
         } else {
           this.showToastMessage('error', 'Registration Error', 'Registration failed. Please try again.');
         }
       },
-      error: (error) => {
+      error: async (error) => {
+        await loading.dismiss();
+
         if (error.status === 400) {
           this.showToastMessage('warning', 'Company Registration Error', error.message);
         } else {
-          this.showToastMessage('warning', 'Company Registration Error', error.message);
+          this.showToastMessage('warning', 'Company Registration Error', error.message || 'Unexpected error occurred.');
         }
       }
     });
   }
-  
-  registerUserWithRole(form: FormGroup, role: string) {
+
+  async registerUserWithRole(form: FormGroup, role: string) {
     if (form.invalid) {
       this.showToastMessage('warning', 'Invalid Input', 'Please fill all required fields.');
       return;
     }
-  
+
     const payload = {
       ...form.value,
       company_id: this.company_id,
       role: role,
     };
-  
+
+    const loading = await this.createLoading();
+    await loading.present();
+
     this.authService.register(payload).subscribe({
-      next: (response) => {
+      next: async (response) => {
+        await loading.dismiss();
+
         if (response) {
-          // this.showToastMessage('success', `${role || UpperCasePipe} Registered`, 'User registered successfully!');
-          this.resetForm(form)
-          // this.presentToast(`${role.charAt(0).toUpperCase() + role.slice(1)} registered successfully!`, 'success', 'top');
+          this.resetForm(form);
+
           this.presentToast(
-            `User registered successfully!`, 
-            'success', 
+            `User registered successfully!`,
+            'success',
             'top'
-          );          
-          this.router.navigate(['/home/login'])
+          );
+
+          this.router.navigate(['/home/login']);
         } else {
           this.showToastMessage('warning', 'Registration Failed', 'Please try again.');
         }
       },
-      error: (error) => {
+      error: async (error) => {
+        await loading.dismiss();
         this.showToastMessage('error', 'Registration Error', error.message || 'An unexpected error occurred.');
       }
     });
-  }  
+  }
 
-  subscribe(){
-    // if (this.subscriptionForm.invalid) {
-    //   this.showToastMessage('warning', 'Invalid Input', 'Please fill all required fields.');
-    //   return;
-    // }
-
+  async subscribe() {
     if (!this.company_id) {
       this.showToastMessage('error', 'Subscription Error', 'Company ID is missing. Please register first.');
       return;
     }
-  
+
     if (!this.selectedPlan || !this.selectedPlan.id) {
       this.showToastMessage('error', 'Subscription Error', 'Please select a valid subscription plan.');
       return;
     }
-  
+
     const payload = {
       company_id: this.company_id,
       tier_id: this.selectedPlan.id,
-      // ...this.subscriptionForm.value,
     };
-    
+
+    const loading = await this.createLoading();
+    await loading.present();
+
     this.subscription.subscribe(payload).subscribe({
       next: async (response) => {
+        await loading.dismiss(); 
+
         if (response && response.tier_id) {
           this.showToastMessage('success', 'Successful Registration & Subscription', 'Company registered successfully!');
-         
-          this.currentStep++; 
+          this.currentStep++;
         } else {
           this.showToastMessage('error', 'Subscription Error', 'Subscription failed. Please try again.');
         }
       },
-      error: (error) => {
-        // this.deleteCo()
+      error: async (error) => {
+        await loading.dismiss(); 
         this.showToastMessage('error', 'Subscription Error', error.message || 'An unexpected error occurred.');
-      } 
-    })
+      }
+    });
   }
 
   async deleteCo(){
