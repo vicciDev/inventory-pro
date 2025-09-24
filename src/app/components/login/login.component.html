@@ -40,7 +40,7 @@
             <ion-buttons class="ion-margin ion-justify-content-evenly">
               <ion-button color="primary" slot="start" fill="clear" shape="round" type="submit" [disabled]="!logForm.valid">
                 <ion-icon slot="end" name="log-in-sharp"></ion-icon>
-                Login
+                {{loading() ? 'Logging You In' : 'Login'}}
               </ion-button>
               <ion-button color="primary" slot="end" shape="round" fill="clear" [disabled]="logForm.pristine" type="Reset" (click)="logForm.reset()">
                 <ion-icon slot="start" name="refresh-circle"></ion-icon>
