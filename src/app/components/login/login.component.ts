@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginRequest } from 'src/app/interface/auth.model';
@@ -21,6 +21,7 @@ export class LoginComponent  implements OnInit {
 // Global variables
 mail = false;
 hide = true;
+loading = signal<boolean>(false)
 logForm!: FormGroup;
 alertButtons!: any;
 alertInputs!: any[];
@@ -74,12 +75,12 @@ changeLogintype() {
 
 // Login Function
 async login(form: FormGroup){
+  this.loading.set(true);
   if (form.valid) {
     const payload: LoginRequest = this.logForm.value;
     try {
       const result = await this.authService.login(payload).toPromise();
   
-      // Check if result exists before using it
       if (result) {
         form.reset()
         // console.log('Login successful:', result);
@@ -87,10 +88,12 @@ async login(form: FormGroup){
       } else {
         // console.error('Login result is undefined');
         this.handleAuthError({ status: 401, error: { detail: 'Unknown error'}});
+        this.loading.set(false);
       }
     } catch (error) {
       // console.error('Login error:', error);
       this.handleAuthError(error);
+      this.loading.set(false);
     }
   }
 }

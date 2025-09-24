@@ -108,7 +108,7 @@
               <ul class="feature-list">
                 <li *ngFor="let feature of plan.features">✔ {{ feature }}</li>
               </ul>
-              <ion-button *ngIf="plan.type !== 'Enterprise'" expand="block" color="medium" class="buy-button" (click)="purchasePlan(plan.id)">BUY NOW</ion-button>
+              <ion-button *ngIf="plan.type !== 'Enterprise'" expand="block" color="medium" class="buy-button" (click)="purchasePlan(plan.id)" [innerText]="plan.name === 'Free' ? 'Try For Free' : 'BUY NOW'"></ion-button>
               <ion-button *ngIf="plan.type === 'Enterprise'" expand="block" color="warning" class="contact-button" (click)="contactCompany()">CONTACT US</ion-button>
             </ion-card-content>
           </ion-card>

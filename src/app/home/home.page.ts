@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
-import { IonTitle, IonContent, IonGrid, IonRow, IonCol, IonButtons, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList, IonItem, IonSegment, IonSegmentButton, IonToolbar, IonBadge, IonTabButton, IonLabel, IonHeader } from '@ionic/angular/standalone';
+import { Router, } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonTitle, IonContent, IonGrid, IonRow, IonCol, IonButtons, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList, IonItem, IonSegment, IonSegmentButton, IonToolbar, IonBadge, IonTabButton, IonLabel, IonHeader,CommonModule, FormsModule, RouterLink],
+  imports: [IonicModule, CommonModule, FormsModule],
 })
 export class HomePage {
 // Define the plans
