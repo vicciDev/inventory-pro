@@ -31,7 +31,7 @@
        <!-- Show no data message -->
       <ion-col size="12">
         <ng-container *ngIf="stockData?.length === 0">
-          <p>No stock data available. Please try again later.</p>
+          <p>No stock data available. Please Restock / Add an Item.</p>
         </ng-container>  
         <ng-container *ngIf="isError">
           <ion-button (click)="refreshData()" color="primary" expand="block" fill="outline">

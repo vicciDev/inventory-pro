@@ -11,43 +11,59 @@
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center ion-align-items-center">
-      <ion-col size="12" sizeMd="3" sizeLg="2" sizeSm="4" sizeXs="6"  *ngFor="let member of userData">
-        <ion-card>
-          <ion-card-content>
-            <div class="img">
-              <img [src]="member.image" alt="{{ member.name }}" (error)="handleImageError($event)"/>
-            </div>
-            <div class="ion-text-center ion-text-muted small ion-text-bold">
-              <ion-card-subtitle><strong>{{ member.name }}</strong>
-              </ion-card-subtitle>
-              <ion-note>
-                <ion-icon name="mail" size="small"></ion-icon>
-                {{ member.email | lowercase }}
-              </ion-note>
-              <p class="role">
-                <ion-icon name="locate-outline" size="small"></ion-icon>
-                <small> {{ member.address | titlecase }}</small>
-              </p>
-              <!-- 
-                     <ion-item lines="none">
-                <ion-icon  name="locate-outline"class="mr-2"></ion-icon>
-                <ion-note class="ion-text-center ion-text-muted small ion-text-bold">
-                  {{ member.address | titlecase }}                 
+      @if(userData.length > 0) {
+        <ion-col size="12" sizeMd="3" sizeLg="2" sizeSm="4" sizeXs="6"  *ngFor="let member of userData">
+          <ion-card>
+            <ion-card-content>
+              <div class="img">
+                <img [src]="member.image" alt="{{ member.name }}" (error)="handleImageError($event)"/>
+              </div>
+              <div class="ion-text-center ion-text-muted small ion-text-bold">
+                <ion-card-subtitle><strong>{{ member.name }}</strong>
+                </ion-card-subtitle>
+                <ion-note>
+                  <ion-icon name="mail" size="small"></ion-icon>
+                  {{ member.email | lowercase }}
                 </ion-note>
-              </ion-item>
-              -->
-              <ion-buttons  class="ion-justify-content-center"> 
-                <ion-button fill="clear" shape="round" [routerLink]="['/userEdit']">
-                  <ion-icon name="create-sharp"></ion-icon>
-                </ion-button>
-                <ion-button fill="clear" shape="round" (click)="openModal()">
-                  <ion-icon name="person-remove-sharp"></ion-icon>
-                </ion-button>
-              </ion-buttons>
-            </div>            
-          </ion-card-content>
-        </ion-card>
+                <p class="role">
+                  <ion-icon name="locate-outline" size="small"></ion-icon>
+                  <small> {{ member.address | titlecase }}</small>
+                </p>
+                <!-- 
+                       <ion-item lines="none">
+                  <ion-icon  name="locate-outline"class="mr-2"></ion-icon>
+                  <ion-note class="ion-text-center ion-text-muted small ion-text-bold">
+                    {{ member.address | titlecase }}                 
+                  </ion-note>
+                </ion-item>
+                -->
+                <ion-buttons  class="ion-justify-content-center"> 
+                  <ion-button fill="clear" shape="round" [routerLink]="['/userEdit']">
+                    <ion-icon name="create-sharp"></ion-icon>
+                  </ion-button>
+                  <ion-button fill="clear" shape="round" (click)="openModal()">
+                    <ion-icon name="person-remove-sharp"></ion-icon>
+                  </ion-button>
+                </ion-buttons>
+              </div>            
+            </ion-card-content>
+          </ion-card>
+        </ion-col>        
+      }@else if (isLoading()) {
+        <ion-col size="12" sizeMd="3" sizeLg="2" sizeSm="4" sizeXs="6" class="ion-justify-content-evenly ion-align-content-center ion-padding">
+          <ion-spinner name="crescent" color="primary"></ion-spinner>
+        </ion-col>
+      }@else if(userData.length === 0) {
+        <ion-col size="12" sizeMd="3" sizeLg="2" sizeSm="4" sizeXs="6" class="ion-justify-content-evenly ion-align-content-center ion-padding">
+        <ion-col sizeMd="1.7" sizeSm="3" sizeXs="4" class="ion-margin-bottom">
+        <p>No suppliers are currently available!</p>
+        <ion-button expand="block" fill="outline" color="warning" [routerLink]="['/suppliers/create']">
+          <ion-icon slot="start" name="person-add-outline"></ion-icon>
+          <small>Supplier</small>
+        </ion-button>
       </ion-col>
+        </ion-col>
+      }
     </ion-row>
   </ion-grid>
 </ion-content>
