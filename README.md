@@ -13,7 +13,7 @@
    * [Installation](#installation)
    * [Running Locally](#running-locally)
 5. [Usage](#usage)
-6. [API Endpoints](#api-endpoints) *(if applicable)*
+6. [API Endpoints](#api-endpoints)
 7. [Testing](#testing)
 8. [Deployment](#deployment)
 9. [Contributing](#contributing)
@@ -28,7 +28,7 @@
 * Track stock levels - current quantity, low-stock alerts
 * Search and filter products
 * Generate basic inventory reports
-* User authentication (if applicable)
+* User authentication
 * Role-based access (optional, e.g., admin vs staff)
 * Responsive UI for desktop & mobile
 
