@@ -25,7 +25,7 @@
 
 * Add, edit, and remove inventory items
 * Categorize products (e.g., by type, vendor)
-* Track stock levels — current quantity, low-stock alerts
+* Track stock levels - current quantity, low-stock alerts
 * Search and filter products
 * Generate basic inventory reports
 * User authentication (if applicable)
@@ -39,12 +39,10 @@ You can try Inventory-Pro live at:
 
 ## Tech Stack
 
-* **Frontend**: *(e.g., React, Vue, plain HTML/CSS/JS)*
-* **Backend**: *(e.g., Node.js + Express, Django, Flask)*
-* **Database**: *(e.g., PostgreSQL, MongoDB)*
-* **Hosting / Deployment**: Render.com
-* **Other Tools / Libraries**: *(list any frameworks, ORMs, UI libraries, state management, etc.)*
-
+* **Frontend**: *(Ionic Angular)*
+* **Backend**: *(FastApi)*
+* **Database**: *(PostgreSQL)*
+* **Other Tools / Libraries**: *(...)*
 ## Getting Started
 
 ### Prerequisites
@@ -101,14 +99,13 @@ Visit `http://localhost:3000` (or whichever port you configured) to view the app
 
 ## Usage
 
-1. **Log in** (if authentication is enabled)
+1. **Log in**
 2. **Add a new product**: navigate to “Products” → “Add Product” → fill in details → save
 3. **View inventory**: go to the inventory dashboard to see a list of all items and their stock levels
 4. **Search / filter**: use the search bar or filters to find specific products
-5. (Optional) **Generate report**: click “Reports” → choose report type → download or view
+5. **Generate report**: click “Reports” → choose report type → download or view
 
-## API Endpoints *(if your app has a backend API)*
-
+## API Endpoints
 Here are some example endpoints — adapt based on your actual API:
 
 | Endpoint            | Method | Description                    |
@@ -161,7 +158,7 @@ This project is licensed under the **MIT License** - see the `LICENSE.md` file f
 ## Contact
 
 * **Project Lead / Maintainer**: VicciDev😏
-* **GitHub**: [your-username](https://github.com/vicciDev)
+* **GitHub**: [VicciDev](https://github.com/vicciDev)
 
 ## Acknowledgments
 
