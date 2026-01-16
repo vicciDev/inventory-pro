@@ -130,7 +130,7 @@ npm test
 yarn test
 ```
 
-*(If you don't have tests yet, you can note that: “No tests are configured yet — coming soon.”)*
+*No tests are configured yet - coming soon.*
 
 ## Deployment
 
@@ -156,7 +156,7 @@ Please make sure your code follows the existing style, and add tests for any new
 
 ## License
 
-This project is licensed under the **MIT License** — see the `LICENSE.md` file for details.
+This project is licensed under the **MIT License** - see the `LICENSE.md` file for details.
 
 ## Contact
 
@@ -166,6 +166,6 @@ This project is licensed under the **MIT License** — see the `LICENSE.md` file
 
 ## Acknowledgments
 
-* Inspiration / design: *(if you used any design systems or UI inspiration)*
+* Inspiration / design: **
 * Thanks to any contributors or libraries used
 * Useful tutorials or documentation you followed
