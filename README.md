@@ -160,12 +160,11 @@ This project is licensed under the **MIT License** - see the `LICENSE.md` file f
 
 ## Contact
 
-* **Project Lead / Maintainer**: Your Name
-* **Email**: [your.email@example.com](mailto:your.email@example.com)
-* **GitHub**: [your-username](https://github.com/your-username)
+* **Project Lead / Maintainer**: VicciDev😏
+* **GitHub**: [your-username](https://github.com/vicciDev)
 
 ## Acknowledgments
 
-* Inspiration / design: **
+* Inspiration / design: * *
 * Thanks to any contributors or libraries used
 * Useful tutorials or documentation you followed
