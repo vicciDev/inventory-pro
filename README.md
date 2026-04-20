@@ -159,9 +159,3 @@ This project is licensed under the **MIT License** - see the `LICENSE.md` file f
 
 * **Project Lead / Maintainer**: VicciDev😏
 * **GitHub**: [VicciDev](https://github.com/vicciDev)
-
-## Acknowledgments
-
-* Inspiration / design: * *
-* Thanks to any contributors or libraries used
-* Useful tutorials or documentation you followed
